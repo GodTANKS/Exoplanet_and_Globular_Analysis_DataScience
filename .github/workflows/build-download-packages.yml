@@ -1,0 +1,41 @@
+name: Build download packages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '외계행성계 탐사_분석 코드.ipynb'
+      - '구상성단_분석 코드.ipynb'
+      - 'exoplanet.eu_catalog_2022.csv'
+      - 'globular_clusters_list.csv'
+      - 'requirements.txt'
+      - '.github/workflows/build-download-packages.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ZIP packages
+        run: |
+          mkdir -p downloads
+          rm -f downloads/exoplanet-colab.zip downloads/globular-cluster-colab.zip
+          zip -j -q downloads/exoplanet-colab.zip             "외계행성계 탐사_분석 코드.ipynb"             "exoplanet.eu_catalog_2022.csv"             "requirements.txt"
+          zip -j -q downloads/globular-cluster-colab.zip             "구상성단_분석 코드.ipynb"             "globular_clusters_list.csv"             "requirements.txt"
+
+      - name: Commit packages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add downloads/*.zip
+          if git diff --cached --quiet; then
+            echo "No package changes"
+          else
+            git commit -m "Update downloadable Colab packages [skip ci]"
+            git push
+          fi
