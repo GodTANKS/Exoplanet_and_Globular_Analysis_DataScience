@@ -1,7 +1,7 @@
 # 🪐 외계행성계 탐사 · ✨ 구상성단 데이터사이언스 실습
 
 실제 천문 데이터를 **Google Colab에서 바로 실행**하며 배우는 데이터 기반 천문학 실습 자료입니다.  
-Python을 처음 접하는 학생·예비교사·교사도 Notebook의 설명을 따라가며 사용할 수 있도록 구성되어 있습니다.
+현재 공개된 두 Notebook은 `google.colab.files.upload()`를 사용하는 **Colab용 `.ipynb`**이며, Python을 처음 접하는 학생·예비교사·교사도 설명을 따라가며 사용할 수 있도록 구성되어 있습니다.
 
 > **처음 오셨다면:** 아래의 **Colab에서 바로 실행** 링크를 누르는 방법이 가장 쉽습니다.  
 > 별도의 Python 설치가 필요하지 않습니다.
@@ -30,12 +30,22 @@ Python을 처음 접하는 학생·예비교사·교사도 Notebook의 설명을
 
 ---
 
-## 📥 파일을 직접 내려받고 싶다면
+## 📥 코드·데이터 파일 직접 받기
 
-GitHub 화면 오른쪽 위의 **Code → Download ZIP**을 누르면 저장소 전체를 받을 수 있습니다.
+Colab을 열지 않고 **Notebook 코드와 원자료 파일 자체를 내려받아 보관하거나 수정**할 수 있습니다.
 
-- 저장소 전체 ZIP: https://github.com/GodTANKS/Exoplanet_and_Globular_Analysis_DataScience/archive/refs/heads/main.zip
-- Colab 사용이 익숙하지 않다면, ZIP을 받은 뒤 Notebook(`.ipynb`)과 CSV 파일을 같은 위치에 준비해 두면 찾기 쉽습니다.
+### 🪐 외계행성계 탐사
+- **[📓 Notebook(.ipynb) 받기](https://github.com/GodTANKS/Exoplanet_and_Globular_Analysis_DataScience/raw/refs/heads/main/%EC%99%B8%EA%B3%84%ED%96%89%EC%84%B1%EA%B3%84%20%ED%83%90%EC%82%AC_%EB%B6%84%EC%84%9D%20%EC%BD%94%EB%93%9C.ipynb)**
+- **[📊 외계행성 CSV 받기](https://github.com/GodTANKS/Exoplanet_and_Globular_Analysis_DataScience/raw/refs/heads/main/exoplanet.eu_catalog_2022.csv)**
+
+### ✨ 구상성단 탐구
+- **[📓 Notebook(.ipynb) 받기](https://github.com/GodTANKS/Exoplanet_and_Globular_Analysis_DataScience/raw/refs/heads/main/%EA%B5%AC%EC%83%81%EC%84%B1%EB%8B%A8_%EB%B6%84%EC%84%9D%20%EC%BD%94%EB%93%9C.ipynb)**
+- **[📊 구상성단 CSV 받기](https://github.com/GodTANKS/Exoplanet_and_Globular_Analysis_DataScience/raw/refs/heads/main/globular_clusters_list.csv)**
+
+### 📦 전체 받기
+- **[저장소 전체 ZIP 받기](https://github.com/GodTANKS/Exoplanet_and_Globular_Analysis_DataScience/archive/refs/heads/main.zip)**
+
+> 두 Notebook은 현재 **Google Colab 실행을 기준으로 작성**되어 있습니다. 파일 형식은 표준 `.ipynb`이지만, 그대로 로컬 Jupyter에서 실행하면 `google.colab` 관련 셀을 수정해야 합니다.
 
 ---
 
@@ -79,16 +89,13 @@ GitHub 화면 오른쪽 위의 **Code → Download ZIP**을 누르면 저장소 
 
 ---
 
-## 💻 로컬 Python에서 실행하려면
+## 💻 실행 환경 안내
 
-Colab 대신 자신의 PC에서 실행하려는 경우:
+- **권장 실행 환경:** Google Colab
+- **공개 코드 형식:** Jupyter Notebook 표준 형식인 `.ipynb`
+- **현재 Notebook의 실행 방식:** Colab 파일 업로드 기능(`google.colab.files.upload()`) 사용
 
-```bash
-pip install -r requirements.txt
-jupyter notebook
-```
-
-그 후 원하는 `.ipynb` 파일을 열고 셀을 순서대로 실행합니다.
+따라서 `.ipynb` 파일 자체는 내려받을 수 있지만, **현재 공개본을 로컬 Jupyter에서 그대로 실행하는 방식은 권장하지 않습니다.** 로컬 Jupyter에서 사용하려면 파일 업로드 셀을 로컬 `pd.read_csv(...)` 방식으로 바꾸어야 합니다.
 
 ---
 
